@@ -671,6 +671,48 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Функционал мобильного меню
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav__link');
+    
+    // Открытие/закрытие мобильного меню
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', function() {
+            if (this.classList.contains('active')) {
+                // Если меню открыто - закрываем
+                this.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = ''; // Возвращаем прокрутку страницы
+            } else {
+                // Если меню закрыто - открываем
+                this.classList.add('active');
+                nav.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Запрещаем прокрутку страницы
+            }
+        });
+    }
+    
+    // Закрытие мобильного меню при клике на ссылку
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = ''; // Возвращаем прокрутку страницы
+        });
+    });
+    
+    // Закрытие мобильного меню при изменении размера окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 767) {
+            hamburgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     const modals = document.querySelectorAll('.modal');
     
     modals.forEach(modal => {

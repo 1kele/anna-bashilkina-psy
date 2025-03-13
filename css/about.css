@@ -210,6 +210,12 @@
     }
 }
 
+@media (max-width: 767px) {
+    .about {
+        padding-top: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .about__image img {
         height: 400px;

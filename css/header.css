@@ -11,8 +11,9 @@
 
 /* Состояние хедера при скрытии */
 .header--hidden {
-    transform: translateY(-100%);
-    box-shadow: none;
+    transform: none; /* Убираем анимацию скрытия */
+    opacity: 1; /* Делаем хедер видимым */
+    visibility: visible; /* Делаем хедер видимым */
 }
 
 .header__inner {
@@ -563,4 +564,120 @@
     color: var(--dark-accent);
     transform: translateX(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 767px) {
+    .header {
+        display: block;
+        padding: 10px 0;
+        box-shadow: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        background: transparent;
+    }
+    
+    .header__inner {
+        justify-content: flex-end;
+        padding: 5px 15px;
+    }
+    
+    .logo {
+        display: none;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        z-index: 301;
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(106, 140, 175, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-menu i {
+        font-size: 22px;
+        color: var(--primary);
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-menu.active {
+        transform: rotate(180deg);
+    }
+    
+    .hamburger-menu.active i {
+        transform: rotate(180deg);
+    }
+    
+    .hamburger-menu.active .fas.fa-bars:before {
+        content: "\f00d"; /* Это код иконки "крестика" в FontAwesome */
+    }
+    
+    .close-menu {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: var(--primary);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 301;
+        box-shadow: 0 2px 10px rgba(106, 140, 175, 0.2);
+    }
+    
+    .nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        z-index: 200;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .nav.active {
+        display: flex;
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .nav__item {
+        margin: 10px 0;
+    }
+    
+    .nav__link {
+        font-size: 1.2rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Скрываем элементы мобильного меню на десктопах */
+@media (min-width: 768px) {
+    .hamburger-menu,
+    .close-menu {
+        display: none;
+    }
 }
