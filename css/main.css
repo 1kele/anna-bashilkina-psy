@@ -1,0 +1,67 @@
+/* Главный файл CSS, импортирующий все модули */
+
+/* Базовые стили */
+@import 'base.css';
+
+/* Компоненты сайта */
+@import 'header.css';
+@import 'intro.css';
+@import 'about.css';
+@import 'services.css';
+@import 'testimonials.css';
+@import 'gallery.css';
+@import 'contacts.css';
+@import 'footer.css';
+@import 'modals.css';
+@import 'animations.css';
+@import 'photo-gallery.css';
+
+/* Дополнительные утилиты */
+.text-center {
+    text-align: center;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+/* Медиа-запросы для общей адаптивности */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}

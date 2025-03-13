@@ -1,0 +1,224 @@
+/* Стили для вводной секции */
+.intro {
+    padding: 100px 0;
+    background-color: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236a8caf' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2H36zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.7;
+}
+
+.intro__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.intro__content {
+    flex: 1;
+}
+
+.intro__title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 15px;
+    line-height: 1.2;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.intro__subtitle {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+    animation: fadeInUp 0.6s ease-out 0.2s;
+    animation-fill-mode: both;
+}
+
+.intro__separator {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    margin: 20px 0;
+    border-radius: 2px;
+    animation: widthGrow 0.8s ease-out 0.4s;
+    animation-fill-mode: both;
+}
+
+.intro__text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-medium);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease-out 0.6s;
+    animation-fill-mode: both;
+}
+
+.intro__qualifications {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--primary);
+    background-color: rgba(106, 140, 175, 0.08);
+    border-left: 3px solid var(--accent);
+    padding: 15px 20px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 30px;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out 0.7s;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+}
+
+.intro__qualifications:hover {
+    background-color: rgba(106, 140, 175, 0.12);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.intro__buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.intro__specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    animation: fadeInUp 0.6s ease-out 0.8s;
+    animation-fill-mode: both;
+}
+
+.intro__specialty-tag {
+    background-color: rgba(106, 140, 175, 0.1);
+    color: var(--primary);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.intro__specialty-tag:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(106, 140, 175, 0.2);
+    border-color: var(--primary);
+    text-decoration: none;
+}
+
+.intro__image {
+    flex: 1;
+    max-width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.intro__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.intro__image:hover img {
+    transform: scale(1.05);
+}
+
+.intro__img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.intro__img-shadow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: var(--border-radius);
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes widthGrow {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80px;
+    }
+}
+
+/* Адаптивность для вводной секции */
+@media (max-width: 992px) {
+    .intro__inner {
+        flex-direction: column;
+    }
+    
+    .intro {
+        padding: 80px 0;
+    }
+    
+    .intro__content {
+        margin-right: 0;
+        margin-bottom: 50px;
+        max-width: 100%;
+    }
+
+    .intro__image {
+        max-width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro__text {
+        font-size: 1.1rem;
+    }
+}

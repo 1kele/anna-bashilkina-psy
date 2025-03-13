@@ -1,0 +1,16 @@
+/* Импорты всех модульных CSS файлов */
+@import 'base.css';
+@import 'header.css';
+@import 'intro.css';
+@import 'about.css';
+@import 'services.css';
+@import 'testimonials.css';
+@import 'gallery.css';
+@import 'photo-gallery.css';
+@import 'contacts.css';
+@import 'footer.css';
+@import 'modals.css';
+@import 'animations.css';
+@import 'lullaby.css';
+@import 'consultation.css';
+@import 'main.css';

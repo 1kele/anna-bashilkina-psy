@@ -1,0 +1,254 @@
+/* Стили для секции контактов */
+.contacts {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+/* Контакты - альтернативный вариант */
+.contacts-alt {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.contacts-alt .contacts__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contacts-alt .contacts__info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.contacts-alt .contacts__item {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    min-width: 300px;
+    transition: var(--transition);
+}
+
+.contacts-alt .contacts__item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.contacts-alt .contacts__title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.contacts-alt .contacts__link {
+    font-size: 1.1rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.contacts-alt .contacts__link:hover {
+    color: var(--dark-accent);
+}
+
+.contacts__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contacts__info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.contacts__title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+.contacts__text {
+    margin-bottom: 2rem;
+    color: var(--text-medium);
+}
+
+.contacts__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contacts__item {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    min-width: 300px;
+    transition: var(--transition);
+}
+.contacts__link {
+    font-size: 1.1rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.contacts__link:hover {
+    color: var(--dark-accent);
+}
+.contacts__icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(106, 140, 175, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.contacts__item-content {
+    flex: 1;
+}
+
+.contacts__item-title {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.contacts__item-text {
+    color: var(--text-medium);
+}
+
+.contacts__social {
+    display: flex;
+    gap: a0px;
+    margin-top: 30px;
+}
+
+.contacts__social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(106, 140, 175, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.contacts__social-link:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.contacts__form {
+    flex: 1;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    transition: var(--transition);
+    font-family: inherit;
+    color: var(--text-dark);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 140, 175, 0.2);
+}
+
+.form-control--textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.form-btn:hover {
+    background-color: var(--dark-accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.form-policy {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+.form-policy a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.form-policy a:hover {
+    color: var(--dark-accent);
+}
+
+/* Карта */
+.map {
+    height: 400px;
+    margin-top: 50px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* Адаптивность для контактов */
+@media (max-width: 992px) {
+    .contacts__inner {
+        flex-direction: column;
+    }
+    
+    .contacts {
+        padding: 80px 0;
+    }
+    
+    .contacts__info, .contacts__form {
+        width: 100%;
+    }
+}

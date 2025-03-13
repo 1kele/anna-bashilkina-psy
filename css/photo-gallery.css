@@ -1,0 +1,254 @@
+/* Стили для фотогалереи студии */
+
+/* Основные стили галереи */
+.studio-gallery {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.gallery__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery__item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    transition: var(--transition);
+}
+
+.gallery__item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery__item:hover .gallery__image {
+    transform: scale(1.1);
+}
+
+/* Скрытые изображения и кнопка "Показать еще" */
+.gallery__item.hidden {
+    display: none;
+}
+
+.gallery__item.show {
+    display: block;
+    animation: fadeInPhoto 0.5s forwards;
+}
+
+.gallery__btn-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.load-more-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: var(--button-radius);
+    font-weight: 500;
+    transition: var(--transition);
+    text-decoration: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.load-more-btn:hover {
+    background-color: var(--dark-accent);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Модальное окно просмотра фото */
+.photo-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.photo-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modalBackgroundFadeIn 0.3s ease forwards;
+}
+
+.photo-modal__content {
+    position: relative;
+    max-width: 85%;
+    max-height: 85%;
+    margin: auto;
+    animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.photo-modal__close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 30px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.photo-modal__close:hover {
+    color: var(--primary);
+}
+
+.photo-modal__image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-modal__image {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Навигационные кнопки для галереи */
+.photo-modal__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.photo-modal__nav:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.photo-modal__nav--prev {
+    left: 20px;
+}
+
+.photo-modal__nav--next {
+    right: 20px;
+}
+
+/* дополнительные стили для загруженных фотографий */
+.gallery__counter {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+.load-more-btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.load-more-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid var(--white);
+    border-radius: 50%;
+    animation: rotate 0.8s linear infinite;
+}
+
+.gallery__empty {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-top: 30px;
+    color: var(--text-medium);
+}
+
+/* Адаптивные стили для галереи */
+@media (max-width: 992px) {
+    .gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .photo-modal__content {
+        max-width: 90%;
+    }
+    
+    .photo-modal__nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .photo-modal__nav--prev {
+        left: 10px;
+    }
+    
+    .photo-modal__nav--next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+    }
+    
+    .photo-modal__content {
+        max-width: 95%;
+    }
+    
+    .load-more-btn {
+        padding: 10px 20px;
+    }
+}

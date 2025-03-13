@@ -1,0 +1,278 @@
+/* Стили для секции "О психологе" */
+.about {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--white) 0%, var(--secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about__inner {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+}
+
+.about__image {
+    flex: 1;
+    position: relative;
+    max-width: 500px;
+    perspective: 1000px;
+}
+
+.about__image::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border: 2px solid var(--accent);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: 1;
+    transition: all 0.6s ease;
+}
+
+.about__image::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(45deg, var(--accent) 0%, transparent 100%);
+    opacity: 0;
+    z-index: 1;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transition: all 0.6s ease;
+}
+
+.about__image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.about__image:hover img {
+    transform: translateZ(20px) rotateX(5deg) rotateY(-5deg);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.about__image:hover::before {
+    transform: scale(1.1) rotate(-5deg);
+    border-color: var(--primary);
+}
+
+.about__image:hover::after {
+    opacity: 0.2;
+    transform: scale(1.05) rotate(5deg);
+}
+
+.about__img {
+    position: relative;
+    z-index: 2;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    height: auto;
+}
+
+.about__content {
+    flex: 1;
+    position: relative;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+}
+
+.about__name {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.about__job {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+}
+
+.about__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.about__text:hover {
+    transform: translateX(10px);
+    color: var(--text-dark);
+}
+
+.about__links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.about__btn {
+    min-width: 160px;
+    text-align: center;
+}
+
+.about__btn--alt {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.about__btn--alt:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Цитаты и дополнительные элементы */
+.about__quote {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--accent);
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-left: 5px solid var(--primary);
+    background-color: rgba(240, 230, 230, 0.5);
+    font-style: italic;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.about__quote::before {
+    content: '\201C';
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+.about__quote::after {
+    content: '\201D';
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    position: absolute;
+    bottom: -45px;
+    right: 10px;
+}
+
+.about__author {
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* Адаптивность для секции о психологе */
+@media (max-width: 992px) {
+    .about__inner {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .about {
+        padding: 80px 0;
+    }
+    
+    .about__image {
+        max-width: 100%;
+    }
+    
+    .about__image img {
+        height: 500px;
+    }
+    
+    .about__content {
+        padding: 20px;
+    }
+    
+    .about__image::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .about__image img {
+        height: 400px;
+    }
+    
+    .about__text {
+        font-size: 1rem;
+    }
+    
+    .about__quote {
+        font-size: 1.2rem;
+        padding: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin: 1.5rem 0;
+    }
+    
+    .about__quote::before {
+        font-size: 3rem;
+        top: -5px;
+        left: 5px;
+    }
+    
+    .about__quote::after {
+        font-size: 3rem;
+        bottom: -35px;
+        right: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about {
+        padding: 60px 0;
+    }
+    
+    .about__image img {
+        height: 350px;
+    }
+    
+    .about__quote {
+        font-size: 1.1rem;
+        padding: 1.5rem 1rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    
+    .about__quote::before {
+        font-size: 2.5rem;
+        top: 5px;
+        left: 10px;
+    }
+    
+    .about__quote::after {
+        font-size: 2.5rem;
+        bottom: -25px;
+        right: 10px;
+    }
+    
+    .about__links {
+        flex-direction: column;
+    }
+    
+    .about__btn {
+        width: 100%;
+    }
+}

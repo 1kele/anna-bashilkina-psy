@@ -1,0 +1,465 @@
+/* Стили для секции услуг */
+.services {
+    padding: 50px 0;
+    background-color: var(--bg-light);
+}
+
+.services__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.service-card__image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-card__img {
+    transform: scale(1.1);
+}
+
+.service-card__content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card__title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.service-card__text {
+    margin-bottom: 20px;
+    color: var(--text-medium);
+    flex-grow: 1;
+}
+
+.service-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.service-card__price {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.service-section {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+}
+
+.service-section--alt {
+    background-color: var(--bg-light);
+}
+
+.service-section__inner {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.service-section__content {
+    flex: 1;
+}
+
+.service-section__image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-section__image:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.service-section__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.service-section__image:hover img {
+    transform: scale(1.05);
+}
+
+.service-section__title {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.service-section__text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.service-section__btn {
+    margin-top: 20px;
+}
+
+.service-section__content, .service-section__image {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-section__content.animate, .service-section__image.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-section:nth-child(odd) .service-section__content {
+    transition-delay: 0.2s;
+}
+
+.service-section:nth-child(odd) .service-section__image {
+    transition-delay: 0.4s;
+}
+
+.service-section:nth-child(even) .service-section__image {
+    transition-delay: 0.2s;
+}
+
+.service-section:nth-child(even) .service-section__content {
+    transition-delay: 0.4s;
+}
+
+/* Секция с ценами */
+.pricing {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--white) 100%);
+}
+
+.pricing__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.price-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(106, 140, 175, 0.1);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(106, 140, 175, 0.15);
+}
+
+.price-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+}
+
+.price-card:hover::before {
+    transform: scaleX(1);
+}
+
+.price-card__title {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.price-card__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.price-card__content {
+    flex-grow: 1;
+}
+
+.price-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.price-card__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--medium-gray);
+    color: var(--text-medium);
+}
+
+.price-card__item:last-child {
+    border-bottom: none;
+}
+
+.price-card__role {
+    font-size: 16px;
+}
+
+.price-card__price {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(106, 140, 175, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.price-card__total {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 20px 0;
+    padding: 30px;
+    background: rgba(106, 140, 175, 0.1);
+    border-radius: 30px;
+}
+
+@media (max-width: 992px) {
+    .service-section__inner {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .service-section--alt .service-section__inner {
+        flex-direction: column-reverse;
+    }
+    
+    .service-section__image {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+.price-card__btn {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.price-card__btn:hover {
+    background: var(--dark-accent);
+    transform: translateY(-2px);
+}
+
+.price-card {
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.price-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.price-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Карточки цен */
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.pricing-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.pricing-card--popular {
+    border: 2px solid var(--primary);
+    transform: scale(1.03);
+}
+
+.pricing-card--popular:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+.pricing-card__badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--primary);
+    color: var(--white);
+    padding: 8px 15px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-bottom-left-radius: 8px;
+}
+
+.pricing-card__header {
+    padding: 25px;
+    background-color: var(--light-gray);
+    text-align: center;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.pricing-card__header h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.pricing-card__price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.pricing-card__discount {
+    font-size: 0.9rem;
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.pricing-card__body {
+    padding: 25px;
+}
+
+.pricing-card__body p {
+    margin-bottom: 20px;
+    color: var(--text-medium);
+}
+
+.pricing-card__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pricing-card__features li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.pricing-card__features i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.pricing-card__btn {
+    display: block;
+    margin: 15px auto 0;
+    text-align: center;
+}
+
+/* Адаптивность для секции услуг */
+@media (max-width: 768px) {
+    .pricing {
+        padding: 60px 0;
+    }
+    
+    .price-card {
+        padding: 30px;
+    }
+    
+    .consultation-card {
+        padding: 25px;
+    }
+    
+    .consultation-page__benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-card--popular {
+        transform: scale(1);
+    }
+    
+    .pricing-card--popular:hover {
+        transform: translateY(-10px) scale(1);
+    }
+}
