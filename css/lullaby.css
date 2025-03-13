@@ -998,3 +998,52 @@
         max-width: 95%;
     }
 }
+
+/* Стили для футера */
+.lullaby-footer {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+    border-top: 1px solid rgba(106, 140, 175, 0.1);
+}
+
+.lullaby-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.lullaby-footer__copyright {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.lullaby-footer__home-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: rgba(106, 140, 175, 0.08);
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+}
+
+.lullaby-footer__home-link:hover {
+    color: var(--accent);
+    background-color: rgba(106, 140, 175, 0.15);
+}
+
+/* Адаптивность для футера */
+@media (max-width: 767px) {
+    .lullaby-footer__home-link {
+        position: static;
+        margin-top: 10px;
+    }
+}

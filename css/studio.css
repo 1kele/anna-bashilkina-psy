@@ -402,6 +402,17 @@ body {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* Градиентный текст */
+.gradient-text {
+    background: linear-gradient(135deg, var(--section-primary) 0%, var(--section-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+    font-weight: 700;
+}
+
 /* Медиа-запросы для адаптивности */
 @media (max-width: 1200px) {
     .studio-hero__title {

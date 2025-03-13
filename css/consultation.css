@@ -581,3 +581,53 @@
 }
 
 /* Удаляем предыдущую анимацию */
+
+/* Стили для футера страницы консультации */
+.consultation-page-body .footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.consultation-page-body .footer__copyright {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.consultation-page-body .footer__back {
+    text-align: right;
+    align-self: flex-end;
+}
+
+.consultation-page-body .footer__link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.consultation-page-body .footer__link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Адаптивность для футера на мобильных устройствах */
+@media (max-width: 767px) {
+    .consultation-page-body .footer__inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .consultation-page-body .footer__copyright {
+        margin-bottom: 15px;
+    }
+    
+    .consultation-page-body .footer__back {
+        text-align: center;
+        align-self: center;
+    }
+}
