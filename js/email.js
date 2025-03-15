@@ -22,7 +22,7 @@ function sendEmail(formId, templateId) {
             const data = {};
             
             // Добавляем приемника электронной почты
-            data['to_email'] = 'baltin2803@bk.ru';
+            data['to_email'] = 'bashilkina82@mail.ru';
             
             // Определяем тип формы
             const isLullabyForm = formId === 'lullabyForm';
